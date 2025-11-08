@@ -155,15 +155,33 @@ function renderProjects() {
         return;
     }
 
-    container.innerHTML = web3dProjects.map((project, index) => `
+    // Gradient colors for different projects
+    const gradients = [
+        'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+        'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+        'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+        'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+        'linear-gradient(135deg, #30cfd0 0%, #330867 100%)'
+    ];
+
+    container.innerHTML = web3dProjects.map((project, index) => {
+        const gradientIndex = index % gradients.length;
+        const gradient = gradients[gradientIndex];
+        
+        const hasImage = project.image ? 'has-image' : '';
+        return `
         <div class="web3d-project-card">
-            <div class="web3d-project-image">
+            <div class="web3d-project-image ${hasImage}" style="background: ${gradient};">
                 ${project.image ? 
-                    `<img src="${project.image}" alt="${project.title}" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'ri-code-s-slash-line\\' style=\\'font-size: 3rem; color: var(--first-color-light);\\'></i>';">` : 
-                    `<i class="ri-code-s-slash-line" style="font-size: 3rem; color: var(--first-color-light);"></i>`
+                    `<img src="${project.image}" alt="${project.title}" onerror="this.onerror=null; this.parentElement.classList.remove('has-image'); this.style.display='none';" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2;">` : 
+                    ''
                 }
+                ${!project.image ? `<i class="ri-code-s-slash-line"></i>` : ''}
+                <div class="project__card-badge" style="position: absolute; top: 1rem; right: 1rem; z-index: 10;">Web 3D</div>
             </div>
             <div class="web3d-project-content">
+                <span class="project__category">Interactive 3D</span>
                 <h3>${project.title}</h3>
                 <p>${project.description}</p>
                 ${project.tech ? `
@@ -173,8 +191,8 @@ function renderProjects() {
                 ` : ''}
                 <div class="web3d-project-actions">
                     ${project.url ? `
-                        <a href="${project.url}" target="_blank" class="web3d__button web3d__button-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
-                            <i class="ri-external-link-line"></i> Voir
+                        <a href="${project.url}" target="_blank" class="project__card-link">
+                            Voir le projet <i class="ri-arrow-right-line"></i>
                         </a>
                     ` : ''}
                     <button class="web3d__button web3d__button-secondary" onclick="deleteProject(${index})" style="padding: 0.5rem 1rem; font-size: 0.9rem;">
@@ -183,7 +201,8 @@ function renderProjects() {
                 </div>
             </div>
         </div>
-    `).join('');
+    `;
+    }).join('');
 }
 
 // Delete a project

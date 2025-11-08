@@ -316,44 +316,64 @@
             <h2 class="section__title">Projets</h2>
             <span class="section__subtitle">Mes travaux récents</span>
             <div class="container section__border">
-                <div class="projects__container">
-                    <div class="projects__content">
-                        <div class="project__icon">
-                            <i class="ri-code-s-slash-line"></i>
+                <div class="projects__grid">
+                    <div class="project__card">
+                        <div class="project__card-image">
+                            <div class="project__image-overlay">
+                                <div class="project__screens">
+                                    <div class="project__screen project__screen-main"></div>
+                                    <div class="project__screen project__screen-secondary"></div>
+                                    <div class="project__screen project__screen-tertiary"></div>
+                                </div>
+                            </div>
+                            <div class="project__card-badge">Web Development</div>
                         </div>
-                        <div>
-                            <span class="projects__subtitle">Web</span>
-                            <h1 class="projects__title">Application Web Moderne</h1>
-                            <p class="projects__description">Application web développée avec HTML, CSS, JavaScript et PHP</p>
-                            <a href="#" class="projects__button">Voir plus
+                        <div class="project__card-content">
+                            <span class="project__category">Web</span>
+                            <h3 class="project__card-title">Application Web Moderne</h3>
+                            <p class="project__card-description">Application web développée avec HTML, CSS, JavaScript et PHP</p>
+                            <a href="#" class="project__card-link">Voir plus
                                 <i class="ri-arrow-right-line"></i>
                             </a>
                         </div>
                     </div>
 
-                    <div class="projects__content">
-                        <div class="project__icon">
-                            <i class="ri-computer-line"></i>
+                    <div class="project__card">
+                        <div class="project__card-image">
+                            <div class="project__image-overlay">
+                                <div class="project__screens">
+                                    <div class="project__screen project__screen-main"></div>
+                                    <div class="project__screen project__screen-secondary"></div>
+                                </div>
+                            </div>
+                            <div class="project__card-badge">Desktop App</div>
                         </div>
-                        <div>
-                            <span class="projects__subtitle">Desktop</span>
-                            <h1 class="projects__title">Application Java</h1>
-                            <p class="projects__description">Application desktop développée en Java avec interface graphique</p>
-                            <a href="#" class="projects__button">Voir plus
+                        <div class="project__card-content">
+                            <span class="project__category">Desktop</span>
+                            <h3 class="project__card-title">Application Java</h3>
+                            <p class="project__card-description">Application desktop développée en Java avec interface graphique</p>
+                            <a href="#" class="project__card-link">Voir plus
                                 <i class="ri-arrow-right-line"></i>
                             </a>
                         </div>
                     </div>
 
-                    <div class="projects__content">
-                        <div class="project__icon">
-                            <i class="ri-database-2-line"></i>
+                    <div class="project__card">
+                        <div class="project__card-image">
+                            <div class="project__image-overlay">
+                                <div class="project__screens">
+                                    <div class="project__screen project__screen-main"></div>
+                                    <div class="project__screen project__screen-secondary"></div>
+                                    <div class="project__screen project__screen-tertiary"></div>
+                                </div>
+                            </div>
+                            <div class="project__card-badge">Backend System</div>
                         </div>
-                        <div>
-                            <span class="projects__subtitle">Backend</span>
-                            <h1 class="projects__title">Système de Gestion</h1>
-                            <p class="projects__description">Plateforme de gestion développée en Python avec base de données</p>
-                            <a href="#" class="projects__button">Voir plus
+                        <div class="project__card-content">
+                            <span class="project__category">Backend</span>
+                            <h3 class="project__card-title">Système de Gestion</h3>
+                            <p class="project__card-description">Plateforme de gestion développée en Python avec base de données</p>
+                            <a href="#" class="project__card-link">Voir plus
                                 <i class="ri-arrow-right-line"></i>
                             </a>
                         </div>
@@ -362,57 +382,54 @@
             </div>
         </section>
 
-        <!--==================== WEB 3D ====================-->
-        <section class="web3d section" id="web3d">
-            <h2 class="section__title">Projets Web 3D</h2>
+
+        <section class="projects section" id="projects">
+            <h2 class="section__title">Web 3d</h2>
             <span class="section__subtitle">Explorez mes projets interactifs en 3D</span>
-            
             <div class="container section__border">
-                <div class="web3d-controls">
-                    <button class="web3d__button" id="addProjectBtn">
-                        <i class="ri-add-line"></i> Ajouter un Projet
-                    </button>
-                </div>
-
-                <div class="web3d-projects" id="web3dProjects">
-                    <!-- Projets Web 3D seront ajoutés ici dynamiquement -->
-                </div>
-
-                <!-- Modal pour ajouter un projet -->
-                <div class="modal" id="projectModal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <h2>Ajouter un Projet Web 3D</h2>
-                        <form id="projectForm">
-                            <div class="form-group">
-                                <label for="projectTitle">Titre du Projet</label>
-                                <input type="text" id="projectTitle" name="title" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="projectDescription">Description</label>
-                                <textarea id="projectDescription" name="description" rows="4" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="projectUrl">URL du Projet</label>
-                                <input type="url" id="projectUrl" name="url" placeholder="https://...">
-                            </div>
-                            <div class="form-group">
-                                <label for="projectImage">URL de l'Image</label>
-                                <input type="url" id="projectImage" name="image" placeholder="https://...">
-                            </div>
-                            <div class="form-group">
-                                <label for="projectTech">Technologies (séparées par des virgules)</label>
-                                <input type="text" id="projectTech" name="tech" placeholder="Three.js, WebGL, ...">
-                            </div>
-                            <div class="form-buttons">
-                                <button type="submit" class="web3d__button">Ajouter</button>
-                                <button type="button" class="web3d__button web3d__button-secondary" id="cancelBtn">Annuler</button>
-                            </div>
-                        </form>
+                <div class="projects__grid">
+                    <div class="project__card">
+                        <div class="project__card-image">
+                            <img src="car.png" alt="" srcset="" sizes="100% 100%" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="project__card-badge">Blender</div>
+                        </div>
+                        <div class="project__card-content">
+                            <span class="project__category">3D</span>
+                            <h3 class="project__card-title">Car With Animation</h3>
+                            <a href="rendercar0001-0250.mp4" class="project__card-link">Voir plus
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                            <br> <br>
+                            <a href="caranimation.blend" class="project__card-link">Download File Blender
+                                <i class="ri-download-line"></i>
+                            </a>
+                        </div>
                     </div>
+
+                    <div class="project__card">
+                        <div class="project__card-image">
+                            <img src="table.png" alt="" srcset="" sizes="100% 100%" style="width: 100%; height: 100%; object-fit: cover;">
+                            <div class="project__card-badge">Blender</div>
+                        </div>
+                        <div class="project__card-content">
+                            <span class="project__category">3D</span>
+                            <h3 class="project__card-title">Simple table</h3>
+                            <a href="table.png" class="project__card-link">Voir plus
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                            <br> <br>
+                            <a href="table.blend" class="project__card-link">Download File Blender
+                                <i class="ri-download-line"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                
                 </div>
             </div>
         </section>
+
+
 
         <!--==================== CONTACT ====================-->
         <section class="contact section" id="contact">

@@ -558,70 +558,151 @@ opacity: 0.15;
 .projects__container{
  overflow: initial;
 }
-.projects__content{
- display: grid;
- justify-content: center;
- gap: 2rem;
+.projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
 }
-.project__img{
- width: 250px;
- border-radius: .75rem;
- margin-bottom: 1.25rem;
+.project__card {
+  background: var(--container-color);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
+  border: 1px solid transparent;
 }
-.project__icon {
-  font-size: 3rem;
+.project__card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px hsla(207, 24%, 35%, 0.2);
+  border-color: var(--text-color-light);
+}
+.project__card-image {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow: hidden;
+}
+.project__card:nth-child(2) .project__card-image {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+.project__card:nth-child(3) .project__card-image {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+.project__image-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+.project__screens {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.project__screen {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.project__screen::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+  border-radius: 0.5rem;
+  pointer-events: none;
+}
+.project__screen-main {
+  width: 60%;
+  height: 80%;
+  z-index: 3;
+}
+.project__screen-secondary {
+  width: 50%;
+  height: 70%;
+  transform: translateX(-20px) rotate(-5deg);
+  z-index: 2;
+  opacity: 0.9;
+}
+.project__screen-tertiary {
+  width: 45%;
+  height: 65%;
+  transform: translateX(20px) rotate(5deg);
+  z-index: 1;
+  opacity: 0.8;
+}
+.project__card-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.9);
   color: var(--title-color);
-  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: var(--smaller-font-size);
+  font-weight: var(--font-medium);
+  backdrop-filter: blur(10px);
+  z-index: 10;
 }
-.projects__subtitle{
- font-size: var(--small-font-size);
- color: var(--text-color-light);
+.project__card-content {
+  padding: 1.5rem;
 }
-.projects__title{
- font-size: var(--h2-font-size);
- margin-bottom: 1.25rem;
- margin: .5rem 0 1.25rem;
+.project__category {
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 0.5rem;
 }
-.projects__description {
+.project__card-title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.75rem;
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+.project__card-description {
   font-size: var(--small-font-size);
   color: var(--text-color);
   margin-bottom: 1rem;
   line-height: 1.6;
 }
-.projects__button{
- display: inline-flex;
- align-items: center;
- column-gap: .5rem;
- color: var(--title-color);
- font-size: var(--smaller-font-size);
+.project__card-link {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .5rem;
+  color: var(--title-color);
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  transition: all 0.3s;
 }
-.projects__button i{
- font-size: 1rem;
- transition: transform .3s;
+.project__card-link:hover {
+  color: var(--first-color);
+  transform: translateX(5px);
 }
-.projects__button:hover i{
- transform: translateX(.25rem);
+.project__card-link i {
+  font-size: 1rem;
+  transition: transform .3s;
 }
-
-/* Swiper class */
- 
-.projects__container .swiper-button-prev::after,
-.projects__container .swiper-button-next::after{
- content: '';
-}
-  .projects__container .swiper-button-prev,
-.projects__container .swiper-button-next{
- font-size: 2rem;
- color: var(--title-color);
- width: initial;
- top: 6rem;
- bottom: .5rem;
-}
-.projects__container .swiper-button-prev{
- left: calc(20% - 3rem);
-}
-.projects__container .swiper-button-next{
- right: calc(20% - 3rem);
+.project__card-link:hover i {
+  transform: translateX(.25rem);
 }
 /*=============== WEB 3D ===============*/
 .web3d {
@@ -654,42 +735,68 @@ opacity: 0.15;
   border: 2px solid var(--title-color);
   color: var(--title-color);
 }
-.web3d-projects {
+.web3d-projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  margin-top: 2rem;
 }
 .web3d-project-card {
   background: var(--container-color);
-  border: 2px solid var(--text-color-light);
   border-radius: 1.5rem;
-  padding: 1.5rem;
-  transition: all .3s;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
+  border: 1px solid transparent;
 }
 .web3d-project-card:hover {
-  border-color: var(--title-color);
-  transform: translateY(-.5rem);
-  box-shadow: 0 8px 25px hsla(207, 24%, 35%, .1);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px hsla(207, 24%, 35%, 0.2);
+  border-color: var(--text-color-light);
 }
 .web3d-project-image {
   width: 100%;
-  height: 200px;
-  background: var(--gradient-color);
-  border-radius: 1rem;
-  margin-bottom: 1rem;
+  height: 250px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 0;
+  margin-bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  position: relative;
 }
 .web3d-project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+.web3d-project-image i {
+  font-size: 4rem;
+  color: rgba(255, 255, 255, 0.9);
+  z-index: 3;
+  position: relative;
+}
+.web3d-project-image.has-image i {
+  display: none;
+}
+.web3d-project-content {
+  padding: 1.5rem;
 }
 .web3d-project-content h3 {
   color: var(--title-color);
-  margin-bottom: .5rem;
+  margin-bottom: 0.75rem;
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-semi-bold);
+}
+.web3d-project-content p {
+  font-size: var(--small-font-size);
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  line-height: 1.6;
 }
 .web3d-project-tech {
   display: flex;
@@ -698,16 +805,23 @@ opacity: 0.15;
   margin: 1rem 0;
 }
 .tech-badge {
-  background: var(--container-color);
+  background: var(--body-color);
   color: var(--title-color);
   padding: .3rem .8rem;
   border-radius: 1rem;
-  font-size: var(--small-font-size);
+  font-size: var(--smaller-font-size);
+  border: 1px solid var(--text-color-light);
 }
 .web3d-project-actions {
   display: flex;
   gap: 1rem;
   margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.web3d-project-actions .web3d__button,
+.web3d-project-actions .web3d__button-secondary {
+  padding: 0.5rem 1rem;
+  font-size: var(--small-font-size);
 }
 
 /* Modal */
@@ -1075,6 +1189,15 @@ opacity: 0.15;
    width: 180px;
    justify-self: center;
  }
+ .projects__grid,
+ .web3d-projects-grid {
+   grid-template-columns: 1fr;
+   gap: 1.5rem;
+ }
+ .project__card-image,
+ .web3d-project-image {
+   height: 200px;
+ }
 }
 
 /* For medium devices */
@@ -1103,9 +1226,14 @@ opacity: 0.15;
  .projects__container{
    overflow: hidden;
  }
+ .projects__grid,
+ .web3d-projects-grid {
+   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   gap: 2rem;
+ }
 }
 
-@media screen and (min-width:767px) {
+ @media screen and (min-width:767px) {
  .home__info-description{
    padding-left: 1rem;
  }
@@ -1147,6 +1275,10 @@ opacity: 0.15;
 }
 .contact__form{
  width: 360px;
+}
+.projects__grid,
+.web3d-projects-grid {
+  grid-template-columns: repeat(2, 1fr);
 }
 }
 
@@ -1330,10 +1462,15 @@ opacity: 0.15;
      height: 365px;
      border-radius: 8.25rem;
    }
-   .projects__container,
-   .testimonial__container{
-     width:1000px;
-   }
+  .projects__container,
+  .testimonial__container{
+    width:1000px;
+  }
+  .projects__grid,
+  .web3d-projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
   
    .projects__container .swiper-button-prev,
    .projects__container .swiper-button-next{
