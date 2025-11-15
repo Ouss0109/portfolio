@@ -351,3 +351,18 @@ if (contactForm) {
         showNotification('Message envoyé avec succès !', 'success');
     });
 }
+
+function openVideo(id) {
+    document.getElementById(id).style.display = "flex";
+}
+
+function closeVideo(id) {
+    let popup = document.getElementById(id);
+    popup.style.display = "none";
+
+    // Stop video when closing
+    let video = popup.querySelector("video");
+    video.pause();
+    video.currentTime = 0;
+}
+

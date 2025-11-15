@@ -389,9 +389,10 @@
                             <span class="project__category">Backend</span>
                             <h3 class="project__card-title">Système de Gestion</h3>
                             <p class="project__card-description">Plateforme de gestion développée en Python avec base de données</p>
-                            <a href="#" class="project__card-link">Voir plus
+                            <a  href="#" class="project__card-link">Voir plus
                                 <i class="ri-arrow-right-line"></i>
                             </a>
+                            
                         </div>
                     </div>
                 </div>
@@ -400,51 +401,61 @@
 
 
         <section class="projects section" id="web3d">
+
             <h2 class="section__title">Web 3d</h2>
-            <span class="section__subtitle">Explorez mes projets interactifs en 3D</span>
+        
             <div class="container section__border">
                 <div class="projects__grid">
+        
+                    <!-- CARD 1 -->
                     <div class="project__card">
                         <div class="project__card-image">
-                            <img src="car.png" alt="" srcset="" sizes="100% 100%" style="width: 100%; height: 100%; object-fit: cover;">
-                            <div class="project__card-badge">Blender</div>
+                            <img src="car.png">
                         </div>
                         <div class="project__card-content">
-                            <span class="project__category">3D</span>
-                            <h3 class="project__card-title">Car With Animation</h3>
-                            <a href="rendercar0001-0250.mp4" class="project__card-link">Voir plus
-                                <i class="ri-arrow-right-line"></i>
-                            </a>
-                            <br> <br>
-                            <a href="caranimation.blend" class="project__card-link">Download File Blender
-                                <i class="ri-download-line"></i>
-                            </a>
+                            <button onclick="openVideo('popup_car')">Open Video</button>
+                            <!-- Lien pour télécharger le fichier Blender --> 
+                             <br>
+                             <a href="caranimation.blend" class="project__card-link" download> Télécharger le fichier Blender 
+                                <i class="ri-download-line"></i> </a>
                         </div>
                     </div>
-
+        
+                    <!-- CARD 2 -->
                     <div class="project__card">
                         <div class="project__card-image">
-                            <img src="table.png" alt="" srcset="" sizes="100% 100%" style="width: 100%; height: 100%; object-fit: cover;">
-                            <div class="project__card-badge">Blender</div>
+                            <img src="table.png">
                         </div>
                         <div class="project__card-content">
-                            <span class="project__category">3D</span>
-                            <h3 class="project__card-title">Simple table</h3>
-                            <a href="table.png" class="project__card-link">Voir plus
-                                <i class="ri-arrow-right-line"></i>
-                            </a>
-                            <br> <br>
-                            <a href="table.blend" class="project__card-link">Download File Blender
-                                <i class="ri-download-line"></i>
-                            </a>
+                            <button onclick="openVideo('popup_table')">Open Video</button>
+                            <!-- Lien pour télécharger le fichier Blender --> 
+                            <br>
+                            <a href="table.blend" class="project__card-link" download> Télécharger le fichier Blender 
+                               <i class="ri-download-line"></i> </a>
                         </div>
                     </div>
-
-                
+        
                 </div>
             </div>
+        
         </section>
-
+        
+        <!-- POPUPS OUTSIDE THE CARDS -->
+        <div class="container_video" id="popup_car">
+            <button class="close_btn" onclick="closeVideo('popup_car')">✖</button>
+            <video controls class="video_player">
+                <source src="car1.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="container_video" id="popup_table">
+            <button class="close_btn" onclick="closeVideo('popup_table')">✖</button>
+            <video controls class="video_player">
+                <source src="table1.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        
 
 
         <!--==================== CONTACT ====================-->
@@ -550,7 +561,14 @@
     <a href="#home" class="scrollup" id="scroll-up">
         <i class="ri-arrow-up-line"></i>
     </a>
-
+ <div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+        <span class="video-close">&times;</span>
+        <video id="modalVideo" controls style="width:100%; border-radius: 10px;">
+            <source id="modalSource" src="" type="video/mp4">
+        </video>
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
