@@ -366,3 +366,32 @@ function closeVideo(id) {
     video.currentTime = 0;
 }
 
+
+
+
+// Get all sections that have an ID (home, skills, projects, web3d, etc.)
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav__link");
+
+function activateMenuOnScroll() {
+    let scrollY = window.pageYOffset;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute("id");
+
+        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+            });
+
+            const activeLink = document.querySelector(`.nav__link[href="#${sectionId}"]`);
+            if (activeLink) activeLink.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", activateMenuOnScroll);
+

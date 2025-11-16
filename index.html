@@ -15,13 +15,14 @@
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="#" class="nav__logo">Oussama</a>
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list grid">
                     <li class="nav__item">
-                        <a href="#home" class="nav__link" id="nav-close-1">
+                        
+                        <a href="#home" class="nav__link active" id="nav-close-1">
                             <i class="ri-home-5-line"></i>Accueil
                         </a>
+
                     </li>
                     <li class="nav__item">
                         <a href="#skills" class="nav__link" id="nav-close-2">
@@ -409,11 +410,17 @@
         
                     <!-- CARD 1 -->
                     <div class="project__card">
+                        
                         <div class="web3d-project-image">
                             <img src="car.png">
+                            <div class="project__card-badge">Blender</div>
                         </div>
                         <div class="project__card-content">
-                            <button onclick="openVideo('popup_car')">Open Video</button>
+                            <span class="project__category  sppm">Modélisation 3D</span>
+                             <h3 class="project__card-title ">Car 3D </h3>
+                            <a class="project__card-link" onclick="openVideo('popup_car')">Open Video
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
                             <!-- Lien pour télécharger le fichier Blender --> 
                              <br>
                              <a href="caranimation.blend" class="project__card-link" download> Télécharger le fichier Blender 
@@ -425,9 +432,14 @@
                     <div class="project__card">
                         <div class="web3d-project-image">
                             <img src="table.png">
+                            <div class="project__card-badge">Blender</div>
                         </div>
                         <div class="project__card-content">
-                            <button onclick="openVideo('popup_table')">Open Video</button>
+                            <span class="project__category  sppm">Modélisation 3D </span>
+                             <h3 class="project__card-title ">Table 3D </h3>
+                            <a class="project__card-link" onclick="openVideo('popup_table')">Open Video
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
                             <!-- Lien pour télécharger le fichier Blender --> 
                             <br>
                             <a href="table.blend" class="project__card-link" download> Télécharger le fichier Blender 

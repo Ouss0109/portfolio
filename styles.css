@@ -748,6 +748,7 @@ opacity: 0.15;
   transition: all 0.3s ease;
   box-shadow: 0 4px 20px hsla(207, 24%, 35%, 0.1);
   border: 1px solid transparent;
+
 }
 .web3d-project-card:hover {
   transform: translateY(-8px);
@@ -756,9 +757,9 @@ opacity: 0.15;
 }
 .web3d-project-image {
   width: 100%;
-  height: 250px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 0;
+  height: 270px;
+  background: transparent;
+  border-radius: 1.5rem;
   margin-bottom: 0;
   display: flex;
   align-items: center;
@@ -771,6 +772,7 @@ opacity: 0.15;
   height: 100%;
   object-fit: cover;
   position: absolute;
+
   inset: 0;
   z-index: 2;
 }
@@ -778,7 +780,7 @@ opacity: 0.15;
   font-size: 4rem;
   color: rgba(255, 255, 255, 0.9);
   z-index: 3;
-  position: relative;
+  position: relative; 
 }
 .web3d-project-image.has-image i {
   display: none;
@@ -1522,41 +1524,45 @@ opacity: 0.15;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%;
-    background: rgba(0,0,0,0.35);
-    backdrop-filter: blur(10px);
-    border-radius: 2px;
-    padding: 20px;
+    width: 60%;
+    height: auto;
+    background: rgba(255, 255, 255, 0.539);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 1rem;
     z-index: 1000;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+     transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.3s ease;
 }
 
 
 /* Video style */
 .video_player {
-    width: 99%;
-    height: 99%;
+    width: 99.50%;
+    height:auto;
     border-radius: 10px;
 }
 
 /* X button */
 .close_btn {
+      z-index: 2000; /* 🔥 Make sure it's on top */
     position: absolute;
-    top: 10px;
-    right: 15px;
-    background: #ff4d4d;
-    color: white;
+    top: 25px;
+    right: 30px;
+    background: var(--body-color);
+    color: var(--text-color);
     border: none;
     font-size: 20px;
-    padding: 5px 10px;
+    padding: 4px 8px;
     border-radius: 5px;
     cursor: pointer;
 }
 .close_btn:hover {
-    background: red;
+    background: rgba(255, 255, 255, 0.697);
 }
 .project__card-content button {
   background: transparent;
@@ -1564,11 +1570,28 @@ opacity: 0.15;
   cursor: pointer;
   font-size: var(--small-font-size);
   font-weight: var(--font-medium);
-  color: black;
+  color: var(--text-color);
   transition: all 0.3s;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   border-radius: 2rem;
   display: inline-flex;
   align-items: center;
   gap: .5rem;
+}
+.project__card:hover{
+  border-color:  transparent;
+}
+.web3d-project-image{
+  padding: 2px;
+}
+.h33{
+  margin-top: 0;
+}
+.project__card-link{
+  cursor: pointer;
+  padding-top: 3px;
+}
+.nav__link.active {
+    font-weight: 500;   /* bold */
+    color: var(--text-color); /* optional */
 }
